@@ -62,10 +62,13 @@ foreach ($response_obj->rows as $row)
 	
 	// Colours
 	
-	if (0)
+	if (1)
 	{
 		// black
-		$fill = 'rgba(0,0,0,0.5)';
+		//$fill = 'rgba(0,0,0,0.5)';
+
+		// purple
+		$fill="rgba(128,0,64,0.5)";
 	}
 	else
 	{
