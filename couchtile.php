@@ -58,7 +58,7 @@ foreach ($response_obj->rows as $row)
 	$x_pos = floor($x_pos/4) * 4;
 	$y_pos = floor($y_pos/4) * 4;
 	
-	$xml .= '<rect id="dot" x="' . ($x_pos - 2) . '" y="' . ($y_pos - 2) . '" width="4" height="4" style="stroke:none; stroke-width:0;"';
+	$xml .= '<rect id="dot" x="' . ($x_pos - 2) . '" y="' . ($y_pos - 2) . '" width="4" height="4" style="stroke-width:1;"';
 	
 	// Colours
 	
@@ -88,7 +88,10 @@ foreach ($response_obj->rows as $row)
 		}
 		
 	}		
-	$xml .= ' fill="'. $fill . '" />';
+	$xml .= ' fill="'. $fill . '"';
+	$xml .= ' stroke="'. $fill . '"';
+	
+	$xml .= '/>';
 } 
  
 $xml .= '
