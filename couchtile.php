@@ -89,7 +89,7 @@ foreach ($response_obj->rows as $row)
 		
 	}		
 	$xml .= ' fill="'. $fill . '"';
-	$xml .= ' stroke="'. $fill . '"';
+	$xml .= ' stroke="rgba(128,0,64)"';
 	
 	$xml .= '/>';
 } 
