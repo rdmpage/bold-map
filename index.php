@@ -415,14 +415,7 @@ foreach ($items as $i)
 	// Link to drill down
 	if (!$i->isLeaf)
 	{
-	    echo ' onClick="document.location=\'?path=' . urlencode($i->id);
-
-		if (!$show_text)
-		{
-			echo '&showtext=false';
-		}
-
-		echo '\';" ';
+	    echo ' onClick="document.location=\'?path=' . urlencode($i->id) . '\';" ';
 	}
 	echo ' >';
 	
