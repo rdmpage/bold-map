@@ -22,13 +22,50 @@ if (isset($_GET['z']))
 	$zoom = (Integer)$_GET['z'];
 }
 
+$path = '[]';
+
+if (isset($_GET['path']))
+{
+	$path = urldecode($_GET['path']);
+}
+
 // Find all points in this tile
-$startkey = array($zoom, $x, $y);
-$endkey = array($zoom, $x, $y, 256);
-		
-$url = '_design/geo/_view/tile?startkey=' . urlencode(json_encode($startkey))
+	
+if ($path == '[]')
+{
+	$startkey = array($zoom, $x, $y);
+	$endkey = array($zoom, $x, $y, "zzz","zzz", "zzz", 256);
+}
+else
+{
+	$taxa = json_decode($path);
+	
+	$startkey = array($zoom, $x, $y);
+	foreach ($taxa as $t)
+	{
+		$startkey[] = $t;
+	}
+	
+	$endkey = array($zoom, $x, $y);
+	foreach ($taxa as $t)
+	{
+		$endkey[] = $t;
+	}
+	
+	// extra
+	$to_add = 3 - count($taxa);
+	for ($i = 0; $i < $to_add; $i++)
+	{
+		$endkey[] = 'zzz';
+	}
+	$endkey[] = (Integer)256;
+}
+	
+	
+$url = '_design/geo/_view/tile_taxon?startkey=' . urlencode(json_encode($startkey))
 	. '&endkey=' .  urlencode(json_encode($endkey))
-	. '&group_level=5';
+	. '&group_level=8';
+	
 	
 if ($config['stale'])
 {
@@ -52,8 +89,16 @@ width="256" height="256px">
  
 foreach ($response_obj->rows as $row)
 {
-	$x_pos = $row->key[3];
-	$y_pos = $row->key[4];
+	if (0)
+	{
+		$x_pos = $row->key[3];
+		$y_pos = $row->key[4];
+	}
+	else
+	{
+		$x_pos = $row->key[6];
+		$y_pos = $row->key[7];
+	}
 	
 	$x_pos = floor($x_pos/4) * 4;
 	$y_pos = floor($y_pos/4) * 4;
