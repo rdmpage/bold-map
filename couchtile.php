@@ -146,6 +146,7 @@ $xml .= '
 
 // Serve up tile	
 header("Content-type: image/svg+xml");
+header("Cache-control: max-age=3600");
 
 echo $xml;
 
