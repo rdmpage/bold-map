@@ -93,6 +93,7 @@ $theB1 = ($theColorEnd & 0x0000ff) >> 0;
       #details {
 		float:right;
 		width:300px;
+		font-size:12px;
       }
       #hit {
 		width:300px;      
@@ -105,11 +106,12 @@ $theB1 = ($theColorEnd & 0x0000ff) >> 0;
 		color:white;
 		font-size:10px;		
       }  
-      
-      
       .barcode {
       	font-size:10px;
       	padding:5px;
+      }
+      .explain {
+      	color: rgb(128,128,128);
       }
     </style>
     
@@ -272,7 +274,9 @@ $theB1 = ($theColorEnd & 0x0000ff) >> 0;
 						if (data.results.length != 0) {
 							var html = '';
 							
-							html += '<h4>Number of barcodes: ' + data.results.length + '</h4>';
+							html += '<div>' + '<b>Number of barcodes: ' + data.results.length + '</b>' + '</div>';
+							
+							html += '<span class="explain">Tile [x,y,z,rx,ry] = [' + x + ',' + y + ',' + zoom + ',' + relative_x + ',' + relative_y + ']</span>';
 							
 							for (var i in data.results) {
 							   html += '<div class="barcode">';
@@ -281,8 +285,10 @@ $theB1 = ($theColorEnd & 0x0000ff) >> 0;
 							   if (data.results[i].museumid) {
 								html += data.results[i].museumid + '<br />';
 							   }
-
-							   html += data.results[i].species_reg + ' ';
+							   
+							   if (data.results[i].species_reg) {
+								html += data.results[i].species_reg + ' ';
+							   }
 							   
 							   if (data.results[i].accession) {
 								html += '<a href="http://www.ncbi.nlm.nih.gov/nuccore/' + data.results[i].accession + '" target="_new" >' + data.results[i].accession + '</a>';
@@ -294,7 +300,7 @@ $theB1 = ($theColorEnd & 0x0000ff) >> 0;
 							$('#hit').html(html);
 							
 						} else {
-						    $('#hit').html('Not found');
+						    $('#hit').html('No barcodes here (try clicking again)');
 						}
 						
 					}
