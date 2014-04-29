@@ -281,13 +281,23 @@ $theB1 = ($theColorEnd & 0x0000ff) >> 0;
 							for (var i in data.results) {
 							   html += '<div class="barcode">';
 							   html += data.results[i].processid + ' ';
-							   html += '<a href="http://www.boldsystems.org/index.php/Public_BarcodeCluster?clusteruri=' + data.results[i].bin_guid + '" target=_new" >' +  data.results[i].bin_guid + '</a>' + '<br />';
+							   
+							   if (data.results[i].bin_guid){
+							   	html += '<a href="http://www.boldsystems.org/index.php/Public_BarcodeCluster?clusteruri=' + data.results[i].bin_guid + '" target=_new" >' +  data.results[i].bin_guid + '</a>' + '<br />';
+							   	}
+							   if (data.results[i].bin_uri){
+							   	html += '<a href="http://www.boldsystems.org/index.php/Public_BarcodeCluster?clusteruri=' + data.results[i].uri + '" target=_new" >' +  data.results[i].bin_uri + '</a>' + '<br />';
+							   	}
+
 							   if (data.results[i].museumid) {
 								html += data.results[i].museumid + '<br />';
 							   }
 							   
 							   if (data.results[i].species_reg) {
 								html += data.results[i].species_reg + ' ';
+							   }
+							   if (data.results[i].species_name) {
+								html += data.results[i].species_name + ' ';
 							   }
 							   
 							   if (data.results[i].accession) {
