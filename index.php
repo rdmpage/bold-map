@@ -286,7 +286,7 @@ $theB1 = ($theColorEnd & 0x0000ff) >> 0;
 							   	html += '<a href="http://www.boldsystems.org/index.php/Public_BarcodeCluster?clusteruri=' + data.results[i].bin_guid + '" target=_new" >' +  data.results[i].bin_guid + '</a>' + '<br />';
 							   	}
 							   if (data.results[i].bin_uri){
-							   	html += '<a href="http://www.boldsystems.org/index.php/Public_BarcodeCluster?clusteruri=' + data.results[i].uri + '" target=_new" >' +  data.results[i].bin_uri + '</a>' + '<br />';
+							   	html += '<a href="http://www.boldsystems.org/index.php/Public_BarcodeCluster?clusteruri=' + data.results[i].bin_uri + '" target=_new" >' +  data.results[i].bin_uri + '</a>' + '<br />';
 							   	}
 
 							   if (data.results[i].museumid) {
