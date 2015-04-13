@@ -109,6 +109,14 @@ $theB1 = ($theColorEnd & 0x0000ff) >> 0;
       .barcode {
       	font-size:10px;
       	padding:5px;
+      	height:40px;
+      	border-bottom: 1px dotted rgb(240,240,240);
+      }
+      .barcode-thumbnail{
+         width:40px;
+         height:40px;
+         border: 1px solid rgb(240,240,240);
+         float:right;
       }
       .explain {
       	color: rgb(128,128,128);
@@ -280,6 +288,10 @@ $theB1 = ($theColorEnd & 0x0000ff) >> 0;
 							
 							for (var i in data.results) {
 							   html += '<div class="barcode">';
+							   
+							   
+							   html += '<img src="image.php?id=' + data.results[i].processid + '" width="40" height="40" class="barcode-thumbnail" />';
+							   
 							   html += data.results[i].processid + ' ';
 							   
 							   if (data.results[i].bin_guid){
