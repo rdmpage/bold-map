@@ -20,7 +20,7 @@ class CouchSimple
      {
 		$ch = curl_init(); 
 		
-		$prefix = 'http://';
+		$prefix = 'https://';
 		$url = $prefix . $this->host . ':' . $this->port . $url;
 		
 		//echo $url;

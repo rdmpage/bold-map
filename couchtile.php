@@ -76,6 +76,8 @@ $resp = $couch->send("GET", "/" . $config['couchdb_options']['database'] . "/" .
 
 $response_obj = json_decode($resp);
 
+//echo $resp;
+
 // Create SVG tile
 $xml = '<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns:xlink="http://www.w3.org/1999/xlink" 
