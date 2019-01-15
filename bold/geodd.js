@@ -1,0 +1,1 @@
+{"_id":"_design/geodd","_rev":"2-3dda83e4a3fa3e733cdc5ee9403e89c7","views":{},"language":"javascript","st_indexes":{"geoidx":{"index":"function (doc) {\n  if (doc.lat && doc.lon) {\n    var geometry = {\n    \"type\": \"Point\",\n    \"coordinates\": [parseFloat(doc.lon),parseFloat(doc.lat)]\n    };\n    st_index(geometry);\n  }\n}"}}}

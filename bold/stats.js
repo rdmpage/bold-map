@@ -1,0 +1,1 @@
+{"_id":"_design/stats","_rev":"1-18a5f29c321b70211eca3461936e52bf","language":"javascript","views":{"counts":{"map":"function(doc) {\n  emit(\"all\", 1);\n  if (doc.accession) {\n     emit(\"accession\", 1);\n  }\n if (doc.lat && doc.lon) {\n     emit(\"geotagged\", 1);\n  }\n}","reduce":"_sum"}}}
