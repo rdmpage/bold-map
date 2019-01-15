@@ -4,3 +4,4 @@ config.inc.php
 fasta/
 
 junk/
+.DS_Store

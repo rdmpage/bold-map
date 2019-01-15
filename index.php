@@ -124,6 +124,10 @@ $theB1 = ($theColorEnd & 0x0000ff) >> 0;
     </style>
     
     <script src="http://www.google.com/jsapi"></script>    
+    
+	<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtqKDniKtABMrEeoV32OsYCXzKe0PpehI&callback=initialize">
+    </script>    
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     
 <script type="text/javascript">
